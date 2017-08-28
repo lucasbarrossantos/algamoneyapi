@@ -1,6 +1,9 @@
 package com.algamonyapi.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "categoria")
@@ -10,6 +13,8 @@ public class Categoria {
     @GeneratedValue( strategy = GenerationType.AUTO)
     private Long codigo;
 
+    @NotBlank
+    @Size(min = 3, max = 40)
     @Column(length = 50)
     private String nome;
 
@@ -35,21 +40,6 @@ public class Categoria {
                 "codigo=" + codigo +
                 ", nome='" + nome + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Categoria)) return false;
-
-        Categoria categoria = (Categoria) o;
-
-        return getCodigo().equals(categoria.getCodigo());
-    }
-
-    @Override
-    public int hashCode() {
-        return getCodigo().hashCode();
     }
 
 }
