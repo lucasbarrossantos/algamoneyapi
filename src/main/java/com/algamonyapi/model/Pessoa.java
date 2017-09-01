@@ -5,7 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "categoria")
+@Table(name = "pessoa")
 public class Pessoa {
 
     @Id
@@ -37,7 +37,7 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Boolean getAtivo() {
+    public Boolean isAtivo() {
         return ativo;
     }
 
