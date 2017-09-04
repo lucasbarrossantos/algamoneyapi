@@ -1,11 +1,13 @@
 package com.algamonyapi.model;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pessoa")
+@DynamicUpdate
 public class Pessoa {
 
     @Id
@@ -51,20 +53,5 @@ public class Pessoa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Pessoa)) return false;
-
-        Pessoa pessoa = (Pessoa) o;
-
-        return getCodigo().equals(pessoa.getCodigo());
-    }
-
-    @Override
-    public int hashCode() {
-        return getCodigo().hashCode();
     }
 }
