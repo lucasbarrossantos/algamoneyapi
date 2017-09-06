@@ -1,7 +1,6 @@
 package com.algamonyapi.model;
 
 import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
