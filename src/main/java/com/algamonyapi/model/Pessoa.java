@@ -1,5 +1,6 @@
 package com.algamonyapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
@@ -41,6 +42,12 @@ public class Pessoa {
 
     public Boolean isAtivo() {
         return ativo;
+    }
+
+    @JsonIgnore
+    @Transient
+    public boolean isInativo(){
+        return !this.isAtivo();
     }
 
     public void setAtivo(Boolean ativo) {
