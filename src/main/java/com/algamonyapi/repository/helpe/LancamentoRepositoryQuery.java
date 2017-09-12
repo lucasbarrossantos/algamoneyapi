@@ -2,11 +2,11 @@ package com.algamonyapi.repository.helpe;
 
 import com.algamonyapi.model.Lancamento;
 import com.algamonyapi.repository.filter.LancamentoFilter;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface LancamentoRepositoryQuery {
 
-    List<Lancamento> filtrar(LancamentoFilter lancamentoFilter);
+    Page<Lancamento> filtrar(LancamentoFilter lancamentoFilter, Pageable pageable);
 
 }
